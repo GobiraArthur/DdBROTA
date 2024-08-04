@@ -1,0 +1,1 @@
+from core.admin.telefone_emergencial_admin import TelefoneEmergencialAdmin

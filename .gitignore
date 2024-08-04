@@ -1,0 +1,16 @@
+# Ambientes virtuais python
+.venv
+
+# Arquivo do pyenv
+.python-version
+
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+media
+
+# IDEs
+.vscode
