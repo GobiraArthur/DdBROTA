@@ -27,6 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:4200',  # Frontend Angular local
+]
+
 
 # Application definition
 
@@ -38,11 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Apps custom
+    'corsheaders', # CORS
     'rest_framework',
     'core'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', # CORS
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
