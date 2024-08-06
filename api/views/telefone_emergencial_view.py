@@ -6,6 +6,33 @@ from rest_framework.response import Response
 from rest_framework import status
 
 
+@api_view(['GET'])
+def listar(request):
+    try:
+        paginacao = telefone_emergencial_service.buscar_por_filtro(request)
+        
+        return Response(paginacao)
+    except ServiceException as se:
+        return Response(
+            {'mensagem': se.msg},
+            status=se.http_erro_code
+        )
+
+@api_view(['GET'])
+def buscar_por_id(request, id: int):
+
+    try:
+        telefone = telefone_emergencial_service.buscar_por_id(id)
+        
+        return Response(
+            telefone
+        )
+    except ServiceException as se:
+        return Response(
+            {'mensagem': se.msg},
+            status=se.http_erro_code
+        )
+    
 @api_view(['POST'])
 def criar(request):
 

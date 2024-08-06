@@ -10,12 +10,15 @@ class TelefoneEmergencialCadastroSerializer(serializers.ModelSerializer):
     class Meta:
         model = TelefoneEmergencial
         fields = [
-            'numero'
+            'numero',
+            'descricao'
         ]
 
 class TelefoneEmergencialAtualizacaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = TelefoneEmergencial
         fields = [
-            'numero'
+            'numero',
+            'descricao',
+            'deletado_em'
         ]

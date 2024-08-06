@@ -1,9 +1,50 @@
 from typing import List
+
+from django.http import HttpRequest
 from api.serializers.telefone_emergencial_serializer import TelefoneEmergencialAtualizacaoSerializer, TelefoneEmergencialCadastroSerializer, TelefoneEmergencialSerializer
 from core.model.telefone_emergencial import TelefoneEmergencial
+from core.util.generic_paginator import GenericPaginator
 from core.util.service_exception import ServiceException
 from rest_framework import status
 
+def buscar_por_filtro(request: HttpRequest) -> List[TelefoneEmergencial]:
+
+    g_paginator = GenericPaginator(
+        TelefoneEmergencial,
+        TelefoneEmergencialSerializer
+    )
+
+    ordenacao = request.GET.get('ordenacao', None)
+
+    filtro_numero = request.GET.get('numero', None)
+    filtro_descricao = request.GET.get('descricao', None)
+    
+    pag = request.GET.get('pag', None)
+    max_reg_pag = request.GET.get('max_reg_pag', None)
+
+    g_paginator.set_pag(pag)
+    g_paginator.set_max_reg_pag(max_reg_pag)
+    g_paginator.set_ordenacao(ordenacao)
+    
+    if filtro_numero:
+        g_paginator.queryset = g_paginator.queryset.filter(numero__startswith=filtro_numero)
+
+    if filtro_descricao:
+        g_paginator.queryset = g_paginator.queryset.filter(descricao__icontains=filtro_descricao)
+
+    return g_paginator.get_objeto_para_view()
+
+def buscar_por_id(id: int) -> TelefoneEmergencial:
+    try:
+        telefone = TelefoneEmergencial.objects.get(pk=id)
+        serializer = TelefoneEmergencialSerializer(telefone)
+
+        return serializer.data
+    except TelefoneEmergencial.DoesNotExist:
+        raise ServiceException(
+            f'Telefone emergencial de id:{id} não encontrado',
+            status.HTTP_404_NOT_FOUND
+        )
 
 def criar(data):
 
