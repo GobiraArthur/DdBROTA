@@ -12,9 +12,9 @@ def criar(data):
     if serializer.is_valid(): 
         if NecessidadeDeManutencao.objects.filter(nome=serializer.validated_data.get('nome')).exists():
             raise ServiceException(
-                f'Item de manutenção já cadastrada!',
+                f'Item de manutenção já cadastrado!',
                 status.HTTP_400_BAD_REQUEST)       
-        serializer.save()          #precisa de mais alguma validacao? Manutenção ja cadastrada ok
+        serializer.save()          
         return serializer.data
     else:
         raise ServiceException(
@@ -30,7 +30,7 @@ def atualizar(id: int, data):
             if NecessidadeDeManutencao.objects.exclude(pk=id).filter(nome=serializer.validated_data.get('nome')
             ).exists():
                 raise ServiceException(
-                    f'Item de manutenção já cadastrada!',
+                    f'Item de manutenção já cadastrado!',
                     status.HTTP_400_BAD_REQUEST
                 )
             serializer.save()
@@ -87,7 +87,7 @@ def remover_lista(ids: List[int]):
             status.HTTP_400_BAD_REQUEST
         )
     
-    itens_namutencao = NecessidadeDeManutencao.objects.filter(id__in=ids) 
+    itens_manutencao = NecessidadeDeManutencao.objects.filter(id__in=ids) 
 
-    if itens_namutencao.exists():
-        itens_namutencao.delete() 
+    if itens_manutencao.exists():
+        itens_manutencao.delete() 
