@@ -1,3 +1,4 @@
+from typing import List
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -66,4 +67,20 @@ def deletar(request, id:int):
         return Response(
             {'mensagem': se.msg},
             status=se.http_erro_code)
-    
+
+@api_view(['DELETE'])
+def deletar_lista(request):
+    try:
+        ids: List[int] = request.data.get('ids', List[int])
+
+        necessidade_de_manutencao_service.remover_lista(ids)
+
+        return Response(
+            {'mensagem': f'Itens de manutenção de id:{str(ids)} removidos com sucesso!'},
+            status=status.HTTP_204_NO_CONTENT
+        )
+    except ServiceException as se:
+        return Response(
+            {'mensagem': se.msg},
+            status=se.http_erro_code
+        )

@@ -18,5 +18,6 @@ urlpatterns = [
     path('necessidade/criar/', necessidades_de_manutencao_views.criar),
     path('necessidade/atualizar/<int:id>/', necessidades_de_manutencao_views.atualizar),
     path('necessidade/remover/<int:id>/', necessidades_de_manutencao_views.deletar), 
+    path('necessidade/remover/', necessidades_de_manutencao_views.deletar_lista)
 
 ]
