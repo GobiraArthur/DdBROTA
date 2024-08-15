@@ -80,4 +80,14 @@ def buscar_por_filtro(request: HttpRequest) -> List[NecessidadeDeManutencao]:
 
     return g_paginator.get_objeto_para_view()
 
+def remover_lista(ids: List[int]):
+    if not ids:
+        raise ServiceException(
+            f'A lista precisa conter ao menos um elemento',
+            status.HTTP_400_BAD_REQUEST
+        )
     
+    itens_namutencao = NecessidadeDeManutencao.objects.filter(id__in=ids) 
+
+    if itens_namutencao.exists():
+        itens_namutencao.delete() 
