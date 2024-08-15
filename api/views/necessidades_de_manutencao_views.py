@@ -34,9 +34,9 @@ def buscar_por_id(request, id: int):
 def criar(request):
 
     try:
-        nova_categoria = necessidade_de_manutencao_service.criar(request.data)
+        novo_item_de_manutencao = necessidade_de_manutencao_service.criar(request.data)
 
-        return Response(nova_categoria, status=status.HTTP_201_CREATED)
+        return Response(novo_item_de_manutencao, status=status.HTTP_201_CREATED)
     except ServiceException as se:
         return Response(
             {'mensagem': se.msg},
@@ -47,9 +47,9 @@ def criar(request):
 def atualizar(request, id:int):
 
     try:
-        categoria_atualizada = necessidade_de_manutencao_service.atualizar(id, request.data)
+        item_atualizado = necessidade_de_manutencao_service.atualizar(id, request.data)
 
-        return Response(categoria_atualizada)
+        return Response(item_atualizado)
     except ServiceException as se:
         return Response(
             {'mensagem': se.msg},
