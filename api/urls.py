@@ -1,7 +1,8 @@
 from django.urls import path
-from api.views import telefone_emergencial_view, verificacao_de_itens_views
+from api.views import telefone_emergencial_view
 from api.views import incidentes_view
 from api.views import necessidades_de_manutencao_views
+from api.views import verificacao_de_itens_views
 
 urlpatterns = [
     # Telefone Emergencial
