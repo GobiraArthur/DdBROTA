@@ -69,7 +69,7 @@ python manage.py runserver
 
 <strong><span style="color: red;">Verificar em reunião</span></strong>
 
-## ✒️ Autores
+## ✒️ Autores do projeto
 
 * **Arthur Gobira** - [desenvolvedor](https://github.com/GobiraArthur)
 * **Jose Ulian Cardoso** - [desenvolvedor](https://github.com/ulian18TIC18)
