@@ -11,8 +11,8 @@ class Incidentes(models.Model):
     descricao =models.TextField()
     criado_em = models.DateTimeField(auto_now_add=True)
     atualizado_em = models.DateTimeField(auto_now=True)
-    deletado_em = models.DateTimeField(null=True)
-    ocorrencia = models.ForeignKey(Ocorrencia, on_delete=models.CASCADE, null=False)
+    deletado_em = models.DateTimeField(null=True, blank=True)
+    ocorrencia = models.ForeignKey(Ocorrencia, on_delete=models.CASCADE, null=True, blank=True)
 
 
     def __str__(self):
