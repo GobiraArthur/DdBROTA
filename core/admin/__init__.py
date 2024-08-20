@@ -1,2 +1,3 @@
 from core.admin.telefone_emergencial_admin import TelefoneEmergencialAdmin
 from core.admin.necessidades_de_manutencao_admin import NecessidadeDeManutencaoAdmin
+from core.admin.incidentes_admin import IncidentesAdmin
