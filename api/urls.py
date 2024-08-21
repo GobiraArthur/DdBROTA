@@ -2,6 +2,7 @@ from django.urls import path
 from api.views import telefone_emergencial_view
 from api.views import incidentes_view
 from api.views import necessidades_de_manutencao_views
+from api.views import verificacao_de_itens_views
 
 urlpatterns = [
     # Telefone Emergencial
@@ -25,4 +26,13 @@ urlpatterns = [
     path('necessidade/atualizar/<int:id>/', necessidades_de_manutencao_views.atualizar),
     path('necessidade/remover/<int:id>/', necessidades_de_manutencao_views.deletar), 
     path('necessidade/remover/', necessidades_de_manutencao_views.deletar_lista)
+    path('necessidade/remover/', necessidades_de_manutencao_views.deletar_lista),
+    #Verificação de Itens
+    path('verificacao/', verificacao_de_itens_views.listar),
+    path('verificacao/<int:id>/', verificacao_de_itens_views.buscar_por_id),
+    path('verificacao/criar/', verificacao_de_itens_views.criar),
+    path('verificacao/atualizar/<int:id>/', verificacao_de_itens_views.atualizar),
+    path('verificacao/remover/<int:id>/', verificacao_de_itens_views.remover),
+    path('verificacao/remover/', verificacao_de_itens_views.remover_lista)
+
 ]
