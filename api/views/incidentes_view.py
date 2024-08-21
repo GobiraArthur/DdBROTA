@@ -77,7 +77,7 @@ def remover(request, id:int):
         incidentes_service.remover(id)
 
         return Response(
-            {'mensagem': f'Telefone emergencial de id:{id} removido com sucesso!'},
+            {'mensagem': f'Incidente de id:{id} removido com sucesso!'},
             status=status.HTTP_204_NO_CONTENT
         )
     except ServiceException as se:
@@ -95,7 +95,7 @@ def remover_lista(request):
         incidentes_service.remover_lista(ids)
 
         return Response(
-            {'mensagem': f'Telefones emergenciais de id:{str(ids)} removidas com sucesso!'},
+            {'mensagem': f'Incidentes de id:{str(ids)} removidas com sucesso!'},
             status=status.HTTP_204_NO_CONTENT
         )
     except ServiceException as se:
