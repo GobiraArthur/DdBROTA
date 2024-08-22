@@ -22,7 +22,7 @@ Ferramentas a serem instaladas no seu ambiente de desenvolvimento:
 - <b>Kivy</b> (versão 2.x ou superior).
 - <b>Git</b> para clonar o repositório.
 
-## 🛠 Configuração
+## 🛠 Configuração do ambiente
 
 Execute os comandos a seguir para instalar as bibliotecas necessárias para o funcionamento do projeto backend:
 
