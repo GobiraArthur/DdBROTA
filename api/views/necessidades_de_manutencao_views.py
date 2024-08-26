@@ -62,7 +62,8 @@ def deletar(request, id:int):
     try:
         necessidade_de_manutencao_service.remover(id)
 
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response({'mensagem': 'Item de manutenção de id:{id} removido com sucesso!'}, 
+                        status=status.HTTP_204_NO_CONTENT)
     except ServiceException as se:
         return Response(
             {'mensagem': se.msg},
