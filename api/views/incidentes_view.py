@@ -22,10 +22,10 @@ def listar(request):
 def buscar_por_id(request, id: int):
 
     try:
-        telefone = incidentes_service.buscar_por_id(id)
+        incidente = incidentes_service.buscar_por_id(id)
         
         return Response(
-            telefone
+            incidente
         )
     except ServiceException as se:
         return Response(
@@ -37,12 +37,12 @@ def buscar_por_id(request, id: int):
 def criar(request):
 
     try:
-        nova_categoria = incidentes_service.criar(
+        incidente = incidentes_service.criar(
             request.data
         )
 
         return Response(
-            nova_categoria,
+            incidente,
             status=status.HTTP_201_CREATED
         )
     except ServiceException as se:
@@ -55,13 +55,13 @@ def criar(request):
 def atualizar(request, id:int):
 
     try:
-        categoria_atualizada = incidentes_service.atualizar(
+        incidente_atualizado = incidentes_service.atualizar(
             id,
             request.data
         )
 
         return Response(
-            categoria_atualizada,
+            incidente_atualizado,
             status=status.HTTP_200_OK
         )
     except ServiceException as se:
@@ -77,7 +77,7 @@ def remover(request, id:int):
         incidentes_service.remover(id)
 
         return Response(
-            {'mensagem': f'Telefone emergencial de id:{id} removido com sucesso!'},
+            {'mensagem': f'Incidente de id:{id} removido com sucesso!'},
             status=status.HTTP_204_NO_CONTENT
         )
     except ServiceException as se:
@@ -95,7 +95,7 @@ def remover_lista(request):
         incidentes_service.remover_lista(ids)
 
         return Response(
-            {'mensagem': f'Telefones emergenciais de id:{str(ids)} removidas com sucesso!'},
+            {'mensagem': f'Incidentes de id:{str(ids)} removidas com sucesso!'},
             status=status.HTTP_204_NO_CONTENT
         )
     except ServiceException as se:
