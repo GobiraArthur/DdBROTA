@@ -1,0 +1,49 @@
+# 1 - Instale a extensao REST Client do vscode para que este arquivo funcione
+# 2 - Ajuste os valores antes de executar
+# 3 - Clique em Send Request para executar o request desejado
+
+# Variaveis
+
+@baseUrl = http://localhost:8000/api
+@recurso = telefone
+
+### Listar
+
+GET {{baseUrl}}/{{recurso}}/
+
+### Cadastrar
+# Nao esqueca de preencher as informacoes do body
+
+POST {{baseUrl}}/{{recurso}}/criar/
+Content-Type: application/json
+
+{
+    "numero": "",
+    "descricao": ""
+}
+
+### Atualizar
+# Nao esqueca de ajustar o valor do id a ser atualizado
+
+PUT {{baseUrl}}/{{recurso}}/atualizar/1/
+Content-Type: application/json
+
+{
+    "numero": "",
+    "descricao": ""
+}
+
+### Remover por id
+# Nao esqueca de ajustar o valor do id a ser removido
+
+DELETE {{baseUrl}}/{{recurso}}/remover/1/
+
+### Remover por lista de ids
+# Nao esqueca de preencher o valor dos ids a serem removidos
+
+DELETE {{baseUrl}}/{{recurso}}/remover/
+Content-Type: application/json
+
+{
+    "ids": []
+}
