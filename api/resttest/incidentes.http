@@ -1,0 +1,81 @@
+## Variaveis 
+
+@baseUrl = http://localhost:8000/api
+@recurso = incidentes
+
+### Listar
+
+GET {{baseUrl}}/{{recurso}}/
+
+### Cadastrar sem ocorrencia
+POST {{baseUrl}}/{{recurso}}/criar/
+Content-Type: application/json
+
+{
+    "tipo": "Batida",
+    "descricao": "Batida contra outro carro"
+    
+} 
+
+### Cadastrar com ocorrencia
+
+POST {{baseUrl}}/{{recurso}}/criar/
+Content-Type: application/json
+
+{
+    "tipo": "incidente",
+    "descricao": "incidente inesperado ",
+    "ocorrencia": {
+        "intinerario": "Ilhesia x Vitoria",
+        "descricao": "incidente inesperado",
+        "ponto_referencia": "igreja batista",
+        "sentido": "rodovia",
+        "matricula_motorista": "456",
+        "matricula_cobrador": "145",
+        "hora": "12:30:00"
+    }
+}
+
+### Atualizar com ocorrencia
+
+PUT {{baseUrl}}/{{recurso}}/atualizar/1/
+Content-Type: application/json
+
+{
+    "tipo": "incidente",
+    "descricao": "incidente inesperado ",
+    "ocorrencia": {
+        "intinerario": "Ilhesia x Vitoria",
+        "descricao": "incidente inesperado",
+        "ponto_referencia": "igreja batista",
+        "sentido": "rodovia",
+        "matricula_motorista": "456",
+        "matricula_cobrador": "145",
+        "hora": "12:30:00"
+    }
+}
+
+### Atualizar sem ocorrencia
+
+PUT {{baseUrl}}/{{recurso}}/atualizar/3/
+Content-Type: application/json
+
+{
+    "tipo": "incidente",
+    "descricao": "incidente inesperado "
+}
+
+### Remover por id
+
+DELETE {{baseUrl}}/{{recurso}}/remover/2/
+
+### Remover por lista de ids
+
+DELETE {{baseUrl}}/{{recurso}}/remover/
+Content-Type: application/json
+
+{
+    "ids": []
+}
+
+
