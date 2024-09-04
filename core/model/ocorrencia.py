@@ -15,4 +15,4 @@ class Ocorrencia(models.Model):
     deletado_em = models.DateTimeField(null=True)
 
     def __str__(self):
-        return f'{self.id} - {self.numero}'
+        return f'{self.id} - {self.descricao}'
