@@ -1,0 +1,39 @@
+# Variaveis
+
+@baseUrl = http://localhost:8000/api
+@recurso = verificacao 
+
+### Listar
+
+GET {{baseUrl}}/{{recurso}}/
+
+### Cadastrar
+
+POST {{baseUrl}}/{{recurso}}/criar/
+Content-Type: application/json
+
+{
+    "nome": ""
+}
+
+### Atualizar
+
+PUT {{baseUrl}}/{{recurso}}/atualizar/1/
+Content-Type: application/json
+
+{
+    "nome": ""
+}
+
+### Remover por id
+
+DELETE {{baseUrl}}/{{recurso}}/remover/1/
+
+### Remover por lista de ids
+
+DELETE {{baseUrl}}/{{recurso}}/remover/
+Content-Type: application/json
+
+{
+    "ids": []
+}
