@@ -76,7 +76,7 @@ def buscar_por_filtro(request: HttpRequest) -> List[NecessidadeDeManutencao]:
     g_paginator.set_ordenacao(ordenacao)
     
     if filtro_nome:
-        g_paginator.queryset = g_paginator.queryset.filter(numero__startswith=filtro_nome)
+        g_paginator.queryset = g_paginator.queryset.filter(nome__startswith=filtro_nome)
 
     return g_paginator.get_objeto_para_view()
 
