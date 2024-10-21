@@ -1,0 +1,203 @@
+@baseUrl = http://localhost:8000/api
+@recurso = vistoria
+
+### Listar
+
+GET {{baseUrl}}/{{recurso}}/ 
+
+### Criar com ocorrencia
+
+POST {{baseUrl}}/{{recurso}}/criar/
+Content-Type: application/json
+
+{
+  "data": "2025-08-17T18:44:38Z",
+  "entrada": "2024-09-17T18:44:44Z",
+  "saida": "2025-09-17T18:44:50Z",
+  "motorista": "Maria da Silva",
+  "veiculo": "1234",
+  "incidentes": [
+    {
+      "tipo": "incidente",
+      "descricao": "incidente inesperado",
+      "ocorrencia": {
+            "hora": "20:39:32",
+            "intinerario": "sao paulo x rio de janeiro",
+            "sentido": "rodovia",
+            "ponto_referencia": "posto de gasolina",
+            "matricula_motorista": "22214",
+            "matricula_cobrador": "5417",
+            "descricao": "batida na via de sao paulo"
+          }
+    }
+  ],
+  "necessidades_manutencao": [
+    {
+      "nome": "Freio"
+    },
+    {
+      "nome": "Marcha"
+    }
+  ],
+  "itens_verificados": [
+    {
+      "nome": "extintor",
+      "status": "NC"
+    },
+    {
+      "nome": "lanterna",
+      "status": "C"
+    },
+    {
+      "nome": "cinto",
+      "status": "NA"
+    }
+  ]
+}
+
+### Criar sem ocorrencia
+
+POST {{baseUrl}}/{{recurso}}/criar/
+Content-Type: application/json
+
+{
+  "data": "",
+  "entrada": "",
+  "saida": "",
+  "motorista": "",
+  "veiculo": "",
+  "incidentes": [
+    {
+      "tipo": "",
+      "descricao": ""
+    }
+  ],
+  "necessidades_manutencao": [
+    {
+      "nome": ""
+    },
+    {
+      "nome": ""
+    }
+  ],
+  "itens_verificados": [
+    {
+      "nome": "",
+      "status": ""
+    },
+    {
+      "nome": "",
+      "status": ""
+    },
+    {
+      "nome": "",
+      "status": ""
+    }
+  ]
+}
+
+### Atualizar com ocorrencia 
+
+PUT {{baseUrl}}/{{recurso}}/atualizar/1/
+Content-Type: application/json
+
+{
+  "data": "",
+  "entrada": "",
+  "saida": "",
+  "motorista": "",
+  "veiculo": "",
+  "incidentes": [
+    {
+      "tipo": "",
+      "descricao": "", 
+      "ocorrencia": {
+            "hora": "",
+            "intinerario": "",
+            "sentido": "",
+            "ponto_referencia": "",
+            "matricula_motorista": "",
+            "matricula_cobrador": "",
+            "descricao": ""
+          }
+    }
+  ],
+  "necessidades_manutencao": [
+    {
+      "nome": ""
+    },
+    {
+      "nome": ""
+    }
+  ],
+  "itens_verificados": [
+    {
+      "nome": "",
+      "status": ""
+    },
+    {
+      "nome": "",
+      "status": ""
+    },
+    {
+      "nome": "",
+      "status": ""
+    }
+  ]
+}
+
+
+### Atualizar sem ocorrencia 
+PUT {{baseUrl}}/{{recurso}}/atualizar/1/
+Content-Type: application/json
+
+{
+  "data": "",
+  "entrada": "",
+  "saida": "",
+  "motorista": "",
+  "veiculo": "",
+  "incidentes": [
+    {
+      "tipo": "",
+      "descricao": ""
+    }
+  ],
+  "necessidades_manutencao": [
+    {
+      "nome": ""
+    },
+    {
+      "nome": ""
+    }
+  ],
+  "itens_verificados": [
+    {
+      "nome": "",
+      "status": ""
+    },
+    {
+      "nome": "",
+      "status": ""
+    },
+    {
+      "nome": "",
+      "status": ""
+    }
+  ]
+}
+
+
+### Remover
+
+DELETE {{baseUrl}}/{{recurso}}/remover/1/
+
+### Remover lista
+
+DELETE {{baseUrl}}/{{recurso}}/remover/
+Content-Type: application/json
+
+{
+  "ids": []
+}
+

@@ -3,4 +3,5 @@ from core.admin.necessidades_de_manutencao_admin import NecessidadeDeManutencaoA
 from core.admin.incidentes_admin import IncidentesAdmin
 from core.admin.ocorrencia_admin import OcorrenciaAdmin
 from core.admin.verificacao_de_itens_admin import VerificacaoDeItensAdmin 
+from core.admin.vistoria_admin import VistoriaAdmin, VistoriaIncidenteInline, VistoriaNecessidadeManutencaoInline, VistoriaVerificacaoItensInline
 

@@ -3,6 +3,7 @@ from api.views import telefone_emergencial_view
 from api.views import incidentes_view
 from api.views import necessidades_de_manutencao_views
 from api.views import verificacao_de_itens_views
+from api.views import vistoria_view
 
 urlpatterns = [
     # Telefone Emergencial
@@ -32,5 +33,12 @@ urlpatterns = [
     path('verificacao/criar/', verificacao_de_itens_views.criar),
     path('verificacao/atualizar/<int:id>/', verificacao_de_itens_views.atualizar),
     path('verificacao/remover/<int:id>/', verificacao_de_itens_views.remover),
-    path('verificacao/remover/', verificacao_de_itens_views.remover_lista)
+    path('verificacao/remover/', verificacao_de_itens_views.remover_lista),
+    #Vistoria
+    path('vistoria/', vistoria_view.listar),
+    path('vistoria/<int:id>/', vistoria_view.buscar_por_id),
+    path('vistoria/criar/', vistoria_view.criar),
+    path('vistoria/atualizar/<int:id>/', vistoria_view.atualizar),
+    path('vistoria/remover/<int:id>/', vistoria_view.remover),
+    path('vistoria/remover/', vistoria_view.remover_lista)
 ]
